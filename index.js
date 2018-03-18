@@ -2,6 +2,7 @@ var http = require('http');
 var fs = require('fs');
 // var path = require('path'); replace with tthe extract function
 var extract = require('./extract');
+var wss = require('./websockets-server');
 const mime = require('mime');
 
 
