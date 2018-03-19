@@ -26,9 +26,11 @@ ws.on('connection', function(socket){
   });
 
 
+
   // when a client is connected use socket to relay any messages
   socket.on('message', function(data){
     console.log('message received ' + data);
+
     ws.clients.forEach(function (clientSocket){
       // look at the data if the string contains \topic then we want to change the topic
       // else if user enters history,it will send the history of chat chronilogically
@@ -38,10 +40,12 @@ ws.on('connection', function(socket){
         currentTopic = "*** Topic is" + data.substring(6);
       }else{
         clientSocket.send(data);
-        messages.push(data); // push msg to array
       }
     });
     // ocket.send(data);
-
+    // add the data to message array
+    if(data.substring(0,6) != '\\topic'){
+      messages.push(data); // push msg to array
+    }
   });
 });
