@@ -2,7 +2,8 @@ var http = require('http');
 var fs = require('fs');
 // var path = require('path'); replace with tthe extract function
 var extract = require('./extract');
-//var wss = require('./websockets-server');
+// eslint-disable-next-line no-unused-vars
+var wss = require('./websockets-server');
 const mime = require('mime');
 
 

@@ -35,7 +35,7 @@ ws.on('connection', function(socket){
         // look at the data if the string contains \topic then we want to change the topic
         // else if user enters history,it will send the history of chat chronilogically
         // else we just push data into msg array and relay the message to other clients
-            if(data.substring(0,6) == '\\topic'){
+            if(data.substring(0,6) == '/topic'){
                 clientSocket.send('*** Topic has changed to' + data.substring(6));
                 currentTopic = '*** Topic is' + data.substring(6);
             }else{
