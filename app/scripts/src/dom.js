@@ -44,29 +44,29 @@ export class ChatList {
 
     drawMessage({user: u, timestamp: t, message: m}){
 
-        let $messageRow = $('<li>',{
+        let $messageRow = $('<li>', {
             'class': 'message-row'
         });
 
-        if(this.username === u ){
+        if (this.username === u) {
             $messageRow.addClass('me');
         }
 
         let $message = $('<p>');
 
-        $message.append($('<span>',{
-            'class': 'messege-username',
+        $message.append($('<span>', {
+            'class': 'message-username',
             text: u
         }));
 
-        $message.append($('<span>',{
+        $message.append($('<span>', {
             'class': 'timestamp',
             'data-time': t,
             text: moment(t).fromNow()
         }));
 
-        $message.append($('<span>',{
-            'class': 'messege-message',
+        $message.append($('<span>', {
+            'class': 'message-message',
             text: m
         }));
 
@@ -79,7 +79,6 @@ export class ChatList {
         $messageRow.append($message);
         this.$list.append($messageRow);
         $messageRow.get(0).scrollIntoView();
-
     }
 
     init(){
